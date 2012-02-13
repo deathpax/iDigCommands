@@ -10,7 +10,10 @@ public class iDigCommands extends JavaPlugin{
 	private Logger log = Logger.getLogger("Minecraft");
 	
 	public void onEnable(){
-		this.logMessage("Enabled.");
+		this.logMessage("***************************");
+		this.logMessage("*   iDig Suite Enabled    *");
+		this.logMessage("*   " + version() +"    *");
+		this.logMessage("***************************");
 	}
 	
 	public void onDisable(){
@@ -20,6 +23,11 @@ public class iDigCommands extends JavaPlugin{
 	public void logMessage(String msg){
 		PluginDescriptionFile pdFile = this.getDescription();
 		this.log.info(pdFile.getName() + " " + pdFile.getVersion() + ": " + msg);
+	}
+	
+	public string version(){
+		PluginDescriptionFile pdFile = this.getDescription();
+		return pdFile.getVersion();
 	}
 
 }
