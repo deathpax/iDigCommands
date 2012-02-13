@@ -1,3 +1,9 @@
 name: iDigCommands
 version: 0.1
 main: in.idig.iDigCommands.iDigCommands
+commands:
+   idig:
+      description: idig main command
+      usage: /<command> [player]
+      permission: iDigCommands.basic
+      permisison-message: You do not have permissions
