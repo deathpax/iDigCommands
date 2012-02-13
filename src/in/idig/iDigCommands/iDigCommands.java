@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 
@@ -13,19 +14,25 @@ public class iDigCommands extends JavaPlugin{
 	
 	private Logger log = Logger.getLogger("Minecraft");
 	private CommandsHandler commandsHandler;
+	private smackHandler smackHandler;
 
 	public CommandsHandler getCommandsHandler() {
 		return commandsHandler;
 	}
+	public smackHandler getsmackHandler() {
+		return smackHandler;
+	}
 	
 	public void onEnable(){
 		commandsHandler = new CommandsHandler(this);
+		smackHandler = new smackHandler(this);
 		getCommand("idig").setExecutor(commandsHandler);
+		getCommand("smack").setExecutor(smackHandler);
 		
 		String PluginVersion = version();
 		this.logMessage("***************************");
 		this.logMessage("*   iDig Suite Enabled    *");
-		this.logMessage("*   " + PluginVersion +"    *");
+		this.logMessage("*   Version" + PluginVersion +"    *");
 		this.logMessage("***************************");
 		
 	}

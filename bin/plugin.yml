@@ -7,3 +7,8 @@ commands:
       usage: /<command> [player]
       permission: iDigCommands.basic
       permisison-message: You do not have permissions
+   smack:
+      description: Smack Player
+      usage: /<command> [player]
+      permission: iDigCommands.basic
+      permisison-message: You do not have permissions
