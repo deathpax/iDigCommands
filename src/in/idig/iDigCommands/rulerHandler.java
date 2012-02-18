@@ -9,25 +9,38 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
-public class smackHandler implements CommandExecutor{
+public class rulerHandler implements CommandExecutor{
 	
 	
-	public smackHandler(iDigCommands iDigCommands) {
+	public rulerHandler(iDigCommands iDigCommands) {
 	}
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		//private Logger log = Logger.getLogger("Minecraft");
+	 //private Logger log = Logger.getLogger("Minecraft");
 		try {			
 			//TODO: Add permission check for permission to use command
+			Player player = (Player) sender;
+			Location myLocation = player.getLocation();
+			Location spawnLocation=player.getWorld().getSpawnLocation();
+			double seaLevel=(double) myLocation.getWorld().getSeaLevel();
+			myLocation.setY(seaLevel);
+			spawnLocation.setY(seaLevel); 
 			if (args.length == 0) {
-				sender.sendMessage(ChatColor.DARK_AQUA + "You smacked no one.");
-				sender.sendMessage(ChatColor.DARK_AQUA + "For help use: /smack help ");
+				
+				double distance = myLocation.distance(spawnLocation);
+				player.sendMessage("You are "+distance +" blocks from spawn.");
 			} else {
 				final String command = args[0].toLowerCase();
 				if (command.equals("help")) {
-					sender.sendMessage(ChatColor.DARK_AQUA + "Smack Help:");
-					//TODO: Add Smack Help
+					sender.sendMessage(ChatColor.DARK_AQUA + "Ruler Help:");
+					//TODO: Add Ruler Help
 					sender.sendMessage(ChatColor.GOLD + "Nothing here");
 					
 				} else{
@@ -36,15 +49,12 @@ public class smackHandler implements CommandExecutor{
 						Player other = (Bukkit.getServer().getPlayer(args[0]));
 						if (other == null) {
 							sender.sendMessage(ChatColor.RED + args[0] + " is not online!");
-						} else {
-							sender.sendMessage(ChatColor.RED + args[0] + " has been smacked!");
-							//other.chat("You have been smacked");
-							sender.sendMessage("You have smacked " +args[0] +".");
-							other.sendMessage(sender.getName() +" has smacked you.");
-							other.sendMessage("test");
-							//this.getLogger().log(Level.INFO,sender.getName() + "/smack " + args[0]);
-							other.damage(2);
-							//TODO: Add smack event
+						} else {							
+							Location thierLocation = other.getLocation();
+							thierLocation.setY(seaLevel);
+							double distance = thierLocation.distance(myLocation);
+							player.sendMessage("You are "+distance +" blocks from " + args[0]);
+							
 						}
 					} catch (final Exception ex) {
 						//I dont know if this will ever be called
@@ -61,4 +71,5 @@ public class smackHandler implements CommandExecutor{
 		return false;
 	
 	}
+	
 }
