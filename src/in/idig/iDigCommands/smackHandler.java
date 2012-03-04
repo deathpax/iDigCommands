@@ -41,7 +41,7 @@ public class smackHandler implements CommandExecutor{
 							//other.chat("You have been smacked");
 							sender.sendMessage("You have smacked " +args[0] +".");
 							other.sendMessage(sender.getName() +" has smacked you.");
-							other.sendMessage("test");
+							//other.sendMessage("test");
 							//this.getLogger().log(Level.INFO,sender.getName() + "/smack " + args[0]);
 							other.damage(2);
 							//TODO: Add smack event

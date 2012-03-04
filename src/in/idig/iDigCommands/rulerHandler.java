@@ -23,7 +23,8 @@ public class rulerHandler implements CommandExecutor{
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-	 //private Logger log = Logger.getLogger("Minecraft");
+		/*
+		//private Logger log = Logger.getLogger("Minecraft");
 		try {			
 			//TODO: Add permission check for permission to use command
 			Player player = (Player) sender;
@@ -68,8 +69,9 @@ public class rulerHandler implements CommandExecutor{
 			//TODO: Level.WARNING throws issue I dont know why
 			//getLogger().log(Level.WARNING, "[LogBlock] Exception in commands handler: ", ex);
 		}
+		*/
 		return false;
-	
+		
 	}
 	
 }
