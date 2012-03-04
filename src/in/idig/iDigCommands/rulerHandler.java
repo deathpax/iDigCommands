@@ -30,12 +30,12 @@ public class rulerHandler implements CommandExecutor{
 			Player player = (Player) sender;
 			Location myLocation = player.getLocation();
 			Location spawnLocation=player.getWorld().getSpawnLocation();
-			double seaLevel=(double) myLocation.getWorld().getSeaLevel();
+			int seaLevel=(int) myLocation.getWorld().getSeaLevel();
 			myLocation.setY(seaLevel);
 			spawnLocation.setY(seaLevel); 
 			if (args.length == 0) {
 				
-				double distance = myLocation.distance(spawnLocation);
+				int distance = (int) myLocation.distance(spawnLocation);
 				player.sendMessage("You are "+distance +" blocks from spawn.");
 			} else {
 				final String command = args[0].toLowerCase();
@@ -53,7 +53,7 @@ public class rulerHandler implements CommandExecutor{
 						} else {							
 							Location thierLocation = other.getLocation();
 							thierLocation.setY(seaLevel);
-							double distance = thierLocation.distance(myLocation);
+							int distance = (int) thierLocation.distance(myLocation);
 							player.sendMessage("You are "+distance +" blocks from " + args[0]);
 							
 						}
