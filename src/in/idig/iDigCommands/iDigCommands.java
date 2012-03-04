@@ -16,6 +16,7 @@ public class iDigCommands extends JavaPlugin{
 	private CommandsHandler commandsHandler;
 	private smackHandler smackHandler;
 	private rulerHandler rulerHandler;
+	private evilchaseHandler evilchaseHandler;
 
 	public CommandsHandler getCommandsHandler() {
 		return commandsHandler;
@@ -26,14 +27,19 @@ public class iDigCommands extends JavaPlugin{
 	public rulerHandler getrulerHandler() {
 		return rulerHandler;
 	}
+	public evilchaseHandler getevilchaseHandler() {
+		return evilchaseHandler;
+	}
 	
 	public void onEnable(){
 		commandsHandler = new CommandsHandler(this);
 		smackHandler = new smackHandler(this);
 		rulerHandler = new rulerHandler(this);
+		evilchaseHandler = new evilchaseHandler(this);
 		getCommand("idig").setExecutor(commandsHandler);
 		getCommand("smack").setExecutor(smackHandler);
 		getCommand("ruler").setExecutor(rulerHandler);
+		getCommand("evilchase").setExecutor(evilchaseHandler);
 		
 		String PluginVersion = version();
 		this.logMessage("***************************");

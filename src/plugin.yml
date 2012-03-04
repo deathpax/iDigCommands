@@ -17,3 +17,8 @@ commands:
       usage: /<command> [player]
       permission: iDigCommands.ruler
       permisison-message: You do not have permissions
+   evilchase:
+      description: ChasePlayers
+      usage: /<command> [player]
+      permission: iDigCommands.evilchase
+      permisison-message: You do not have permissions
