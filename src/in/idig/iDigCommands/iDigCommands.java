@@ -15,6 +15,7 @@ public class iDigCommands extends JavaPlugin{
 	private Logger log = Logger.getLogger("Minecraft");
 	private CommandsHandler commandsHandler;
 	private smackHandler smackHandler;
+	private rulerHandler rulerHandler;
 
 	public CommandsHandler getCommandsHandler() {
 		return commandsHandler;
@@ -22,12 +23,17 @@ public class iDigCommands extends JavaPlugin{
 	public smackHandler getsmackHandler() {
 		return smackHandler;
 	}
+	public rulerHandler getrulerHandler() {
+		return rulerHandler;
+	}
 	
 	public void onEnable(){
 		commandsHandler = new CommandsHandler(this);
 		smackHandler = new smackHandler(this);
+		rulerHandler = new rulerHandler(this);
 		getCommand("idig").setExecutor(commandsHandler);
 		getCommand("smack").setExecutor(smackHandler);
+		getCommand("ruler").setExecutor(rulerHandler);
 		
 		String PluginVersion = version();
 		this.logMessage("***************************");

@@ -10,5 +10,10 @@ commands:
    smack:
       description: Smack Player
       usage: /<command> [player]
-      permission: iDigCommands.basic
+      permission: iDigCommands.smack
+      permisison-message: You do not have permissions
+   ruler:
+      description: Measure Stuff
+      usage: /<command> [player]
+      permission: iDigCommands.ruler
       permisison-message: You do not have permissions
