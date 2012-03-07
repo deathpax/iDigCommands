@@ -12,12 +12,13 @@ import org.bukkit.entity.Player;
 
 public class evilchaseHandler implements CommandExecutor{
 	
+	private Logger logger = Logger.getLogger("Minecraft");
 	
 	public evilchaseHandler(iDigCommands iDigCommands) {
 	}
+	
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		//private Logger log = Logger.getLogger("Minecraft");
+	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) { 
 		try {			
 			//TODO: Add permission check for permission to use command
 			if (args.length == 0) {
@@ -55,8 +56,7 @@ public class evilchaseHandler implements CommandExecutor{
 			}
 		} catch (final Exception ex) {
 			sender.sendMessage(ChatColor.RED + "Error, check log");
-			//TODO: Level.WARNING throws issue I dont know why
-			//getLogger().log(Level.WARNING, "[LogBlock] Exception in commands handler: ", ex);
+			logger.log(Level.WARNING, "[LogBlock] Exception in commands handler: ", ex);
 		}
 		return false;
 	
