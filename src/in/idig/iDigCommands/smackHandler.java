@@ -1,8 +1,5 @@
 package in.idig.iDigCommands;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -12,12 +9,14 @@ import org.bukkit.entity.Player;
 
 public class smackHandler implements CommandExecutor{
 	
+	private iDigCommands plugin;
 	
 	public smackHandler(iDigCommands iDigCommands) {
 	}
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		//private Logger log = Logger.getLogger("Minecraft");
+		
 		try {			
 			//TODO: Add permission check for permission to use command
 			if (args.length == 0) {
@@ -55,8 +54,7 @@ public class smackHandler implements CommandExecutor{
 			}
 		} catch (final Exception ex) {
 			sender.sendMessage(ChatColor.RED + "Error, check log");
-			//TODO: Level.WARNING throws issue I dont know why
-			//getLogger().log(Level.WARNING, "[LogBlock] Exception in commands handler: ", ex);
+			plugin.logWarning(ex);
 		}
 		return false;
 	

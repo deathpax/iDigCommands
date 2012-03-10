@@ -1,5 +1,8 @@
 package in.idig.iDigCommands;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,6 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandsHandler implements CommandExecutor{
+	
+	private Logger logger = Logger.getLogger("Minecraft");
 
 	public CommandsHandler(iDigCommands iDigCommands){
 		// TODO Auto-generated constructor stub
@@ -54,8 +59,7 @@ public class CommandsHandler implements CommandExecutor{
 			sender.sendMessage(ChatColor.RED + ex.getMessage());
 		} catch (final Exception ex) {
 			sender.sendMessage(ChatColor.RED + "Error, check log");
-			//TODO: Level.WARNING throws issue I dont know why
-			//getLogger().log(Level.WARNING, "[LogBlock] Exception in commands handler: ", ex);
+			logger.log(Level.WARNING, "[LogBlock] Exception in commands handler: ", ex);
 		}
 		return true;
 	}
