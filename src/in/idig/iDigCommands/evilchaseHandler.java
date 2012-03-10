@@ -1,8 +1,5 @@
 package in.idig.iDigCommands;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -12,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class evilchaseHandler implements CommandExecutor{
 	
-	private Logger logger = Logger.getLogger("Minecraft");
+	private iDigCommands plugin;
 	
 	public evilchaseHandler(iDigCommands iDigCommands) {
 	}
@@ -56,7 +53,7 @@ public class evilchaseHandler implements CommandExecutor{
 			}
 		} catch (final Exception ex) {
 			sender.sendMessage(ChatColor.RED + "Error, check log");
-			logger.log(Level.WARNING, "[LogBlock] Exception in commands handler: ", ex);
+			plugin.logWarning(ex);
 		}
 		return false;
 	
