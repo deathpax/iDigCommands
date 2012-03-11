@@ -22,3 +22,11 @@ commands:
       usage: /<command> [player]
       permission: iDigCommands.evilchase
       permisison-message: You do not have permissions
+   stats:
+      description: Server Usage Stats
+      permission: iDigCommands.stats
+      permisison-message: You do not have permissions
+   faq:
+      description: idig FAQ
+      permission: iDigCommands.stats
+      permisison-message: You do not have permissions
