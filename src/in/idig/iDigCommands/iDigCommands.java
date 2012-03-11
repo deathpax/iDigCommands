@@ -1,5 +1,6 @@
 package in.idig.iDigCommands;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.bukkit.ChatColor;
@@ -12,7 +13,7 @@ import org.bukkit.command.CommandSender;
 
 public class iDigCommands extends JavaPlugin{
 	
-	private Logger log = Logger.getLogger("Minecraft");
+	private Logger logger = Logger.getLogger("Minecraft");
 	private CommandsHandler commandsHandler;
 	private smackHandler smackHandler;
 	private rulerHandler rulerHandler;
@@ -58,7 +59,11 @@ public class iDigCommands extends JavaPlugin{
 	public void logMessage(String msg){
 		PluginDescriptionFile pdFile = this.getDescription();
 		//this.log.info(pdFile.getName() + " " + pdFile.getVersion() + ": " + msg);
-		this.log.info("[" + pdFile.getName() +"] "+ msg);
+		this.logger.info("[" + pdFile.getName() +"] "+ msg);
+	}
+	
+	public void logWarning(Exception ex) {
+		this.logger.log(Level.WARNING,"[LogBlock] Exception in commands handler: ",ex);	
 	}
 
 	public String version(){
